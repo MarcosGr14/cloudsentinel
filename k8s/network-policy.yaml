@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: waf-zero-trust-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: cloudsentinel-waf
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  # Permitir entrada HTTP solo en puerto 8080
+  - ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  # Permitir salida solo a la base de datos PostgreSQL (5432) y Redis (6379)
+  - ports:
+    - protocol: TCP
+      port: 5432
+    - protocol: TCP
+      port: 6379

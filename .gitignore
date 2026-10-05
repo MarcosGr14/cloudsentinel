@@ -1,0 +1,21 @@
+# Binarios compilados de Go
+cloudsentinel
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Cobertura y logs
+*.test
+*.out
+*.log
+
+# Entorno y editores
+.env
+*.pem
+*.key
+.idea/
+.vscode/
+*.swp
+.DS_Store
